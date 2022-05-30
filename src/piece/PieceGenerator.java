@@ -25,6 +25,8 @@ public final class PieceGenerator {
 			return new Piece(x, y, new PieceShapeS());
 		} else if (randomNumber == 5) {
 			return new Piece(x, y, new PieceShapeT());
+		}else if (randomNumber == 6) {
+			return new Piece(x, y, new PieceShapeU());
 		} else {
 			return new Piece(x, y, new PieceShapeZ());
 		}

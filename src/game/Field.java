@@ -14,6 +14,7 @@ public class Field {
 	private FieldSquare[][] field;
 	private Color[][] fieldColor;
 	private Random random;
+	private int score = 0;
 
 	public Field(int fieldHeight, int fieldWidth) {
 		this.random = new Random();
@@ -26,12 +27,12 @@ public class Field {
 
 		for (int row = 0; row < field.length; row++) {
 			for (int col = 0; col < field[0].length; col++) {
-				if (row > 8 && this.random.nextInt(11) <= 5) {
+				/*if (row > 8 && this.random.nextInt(11) <= 5) {
 					this.field[row][col] = FieldSquare.STACK;
 					this.fieldColor[row][col] = Field.FIELD_COLORS[this.random.nextInt(Field.FIELD_COLORS.length)];					
-				} else {
+				} else {*/
 					this.field[row][col] = FieldSquare.EMPTY;
-				}
+				//}
 			}
 		}
 	}
@@ -74,6 +75,13 @@ public class Field {
 				}				
 			}
 		}
+		g.setColor(Color.BLUE);
+		Font currentFont = g.getFont();
+		Font newFont = currentFont.deriveFont((int)currentFont.getSize() * 2F);
+		g.drawString("score",330,400);
+		g.setColor(Color.BLUE);
+		g.setFont(newFont);
+		g.drawString(String.valueOf(score),330,450);
 	}
 
 	public boolean isPieceFallen(Piece piece) {
@@ -221,6 +229,7 @@ public class Field {
 
 			if (isFullRow) {
 				this.shiftRows(row);
+				score++;
 			}
 		}
 	}

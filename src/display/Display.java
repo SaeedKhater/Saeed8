@@ -59,6 +59,8 @@ public class Display extends Canvas {
 
 		// Linking the canvas onto the frame
 		frame.add(canvas);
+
+
 		// Resizing a little bit to ensure that everything on the canvas is
 		// visible
 		frame.pack();
